@@ -1,10 +1,10 @@
 <?php
 
 // Get the list of "calories" for each "elf"
-$result = include("./part_1.php");
+$listOfElves = include("./part_1.php");
 
 // Sort the list of "calories" for each "elf" in descending order
-rsort($result);
+rsort($listOfElves);
 
-// Get the first 3 "calories" from the list combined
-var_dump($result[0]+$result[1]+$result[2]);
+// Get the 3 biggest "calories" from the list, combined
+var_dump($listOfElves[0]+$listOfElves[1]+$listOfElves[2]);
