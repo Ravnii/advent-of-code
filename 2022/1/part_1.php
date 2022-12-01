@@ -3,32 +3,28 @@
 // Read the file line by line
 $handle = fopen("./input.txt", "r");
 
+$i = 0;
 $result = [];
 
-if ($handle) {
+while (($line = fgets($handle)) !== false) {
 
-    $i = 0;
+  // Incase of line explicitly containing 0
+  if ($line == "0") {
+    continue;
+  }
 
-    while (($line = fgets($handle)) !== false) {
+  // New line, representing a new "elf"
+  if (intval($line) === 0) {
+    $i++;
+    continue;
+  }
 
-      // Incase of line explicitly containing 0
-      if ($line == "0") {
-        continue;
-      }
-
-      // New line, representing a new "elf"
-      if (intval($line) === 0) {
-        $i++;
-        continue;
-      }
-
-      // "Calories" added to a specific "elf"
-      $result[$i][] = intval($line);
-        
-    }
-
-    fclose($handle);
+  // "Calories" added to a specific "elf"
+  $result[$i][] = intval($line);
+    
 }
+
+fclose($handle);
 
 // Calculate the total "calories" for each "elf"
 foreach ($result as $key => $value) {
