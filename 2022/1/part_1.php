@@ -13,7 +13,7 @@ while (($calories = fgets($theList)) !== false) {
     continue;
   }
 
-  // New line, representing a new "elf"
+  // Empty line, representing a new "elf"
   if (intval($calories) === 0) {
     $elfNumber++;
     continue;
@@ -26,14 +26,15 @@ while (($calories = fgets($theList)) !== false) {
 
 fclose($theList);
 
+$listOfTotalCaloriesPerElf = [];
 // Calculate the total "calories" for each "elf"
 foreach ($listOfElves as $elf => $listOfCalories) {
-  $listOfElves[$elf] = array_sum($listOfCalories);
+  $listOfTotalCaloriesPerElf[$elf] = array_sum($listOfCalories);
 }
 
 // Find the "elf" with the most "calories"
-$biggest = max($listOfElves);
+$mostCalories = max($listOfTotalCaloriesPerElf);
 
-var_dump($biggest);
+echo "Most calories for an elf: " . $mostCalories;
 
-return $listOfElves;
+return $listOfTotalCaloriesPerElf;
