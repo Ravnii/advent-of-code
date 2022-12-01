@@ -9,7 +9,7 @@ $result = [];
 while (($line = fgets($handle)) !== false) {
 
   // Incase of line explicitly containing 0
-  if ($line == "0") {
+  if ($line === "0") {
     continue;
   }
 
