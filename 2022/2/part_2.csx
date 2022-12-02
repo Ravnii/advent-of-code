@@ -1,3 +1,5 @@
+#load "part_1.csx"
+
 using Internal;
 
 // A = rock = 1 point;
@@ -20,9 +22,7 @@ using Internal;
 // C Y > C = 3 + 3 = 6
 // C Z > A = 1 + 6 = 7
 
-string[] rounds = File.ReadAllLines("./input.txt");
-
-int score = 0;
+score = 0;
 
 foreach(string round in rounds)
 {
