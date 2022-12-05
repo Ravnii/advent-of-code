@@ -31,7 +31,7 @@ for line in lines:
     
   i = i + 1
 
-sum = 0;
+sum = 0
 for char in result:
   if char in part_1.priority:
     sum += part_1.priority[char]
