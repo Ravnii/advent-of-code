@@ -60,4 +60,5 @@ foreach(string round in rounds)
   }
 }
 
+// run: dotnet script part_2.csx
 Console.WriteLine("Your final score is: " + score.ToString());
