@@ -1,6 +1,6 @@
 import part_1
 
-f = open("3/input.txt", "r")
+f = open("2022/3/input.txt", "r")
 
 lines = []
 
