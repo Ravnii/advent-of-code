@@ -21,7 +21,7 @@ while (($calories = fgets($theList)) !== false) {
 
   // "Calories" added to a specific "elf"
   $listOfElves[$elfNumber][] = intval($calories);
-    
+
 }
 
 fclose($theList);
