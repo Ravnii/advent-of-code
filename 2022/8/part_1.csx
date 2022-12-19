@@ -1,4 +1,3 @@
-
 using Internal;
 
 public List<int[]> data = new List<int[]>();
@@ -25,32 +24,6 @@ public string part1() {
     }
     for (int i = 0; i < data.Count; i++) for (int j = 0; j < data.Count; j++) sum += visible[i][j];
     return sum.ToString();
-}
-
-public string part2slow() {
-    int dim = data.Count - 1;
-    List<int[]> visible = new List<int[]>();
-    foreach (var s in data) visible.Add(new int[data[0].Length]);
-    for (int i = 0; i < data.Count; i++) {
-        int[] cntlr = new int[11], cntrl = new int[11], cnttb = new int[11], cntbt = new int[11];
-        for (int j = 0; j < data.Count; j++) {
-            visible[i][j]+=cntlr[data[i][j]];
-            for (int h = 1; h < 11; h++) cntlr[h] = h <= data[i][j] ? 1 : cntlr[h] + 1;
-            visible[i][dim-j]+=100*cntrl[data[i][dim-j]];
-            for (int h = 1; h < 11; h++) cntrl[h] = h <= data[i][dim-j] ? 1 : cntrl[h] + 1;
-            visible[j][i]+=100*100*cnttb[data[j][i]];
-            for (int h = 1; h < 11; h++) cnttb[h] = h <= data[j][i] ? 1 : cnttb[h] + 1;
-            visible[dim-j][i]+=100*100*100*cntbt[data[dim-j][i]];
-            for (int h = 1; h < 11; h++) cntbt[h] = h <= data[dim-j][i] ? 1 : cntbt[h] + 1;
-        }
-    }
-    int max = 0;
-    for (int i = 0; i < data.Count; i++) for (int j = 0; j < data.Count; j++) {
-        int prod = 1, v = visible[i][j];
-        for (int k = 0; k < 4; k++) { prod *= v%100; v/=100; }
-        if (prod > max) max = prod;
-    }
-    return max.ToString();
 }
 
 List<String> input = File.ReadAllLines("./input.txt").ToList();
